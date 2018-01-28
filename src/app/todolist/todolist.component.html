@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sx-12">
+    <app-addlist (emitNewTask)="onAddNewTask($event)"></app-addlist>
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 todo-tasklist">
+        <ul>
+          <li class="row" *ngFor="let task of toDoTaskList">
+            <div (click)="onEditTask(task)" class="col-xs-8">{{task.name}} 
+              <span [ngClass]="{red: task.status==='pending'}" class="green">{{task.status}}</span></div> 
+            <span (click)="onEditTask(task)" class="glyphicon glyphicon-edit edit-task"></span> <span (click)="onDeleteTask(task, task.id)" class="delete-task">×</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-7">
+          <hr/>
+        <div *ngIf="detailedTask; else infoText;" class="row padding">
+          <app-todo-details (emitUpdateTask) = "taskUpdate($event)" [taskDetails]="detailedTask"></app-todo-details>
+        </div>
+        <ng-template #infoText>
+            <div class="row">
+              <div class="col xs-12">
+                  <div class="alert alert-info text-center">
+                      <strong>Please select task to view/edit!</strong>
+                  </div>
+              </div>
+            </div>
+        </ng-template>
+      </div>
+      
+    </div>
+  </div>
+</div>

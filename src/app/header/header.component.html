@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse navbar-component">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <button (click)="onClickNavBar(headerDropdownToOpen)" appHeaderDropdown type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span> 
+    </button>
+    <a class="navbar-brand1" href="#"><img [src]=appLogo alt="logo" style="width: 44px;"></a>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar" #headerDropdownToOpen>
+    <ul class="nav navbar-nav">
+      <li class="text-uppercase"><a  href="#" (click)="onSelect('recipe')">ToDo List</a></li>
+      <!-- <li class="text-uppercase"><a  href="#" (click)="onSelect('shopping-list')">Add Task</a></li> -->
+  
+    </ul>
+   </div>
+  </div>
+</nav>
