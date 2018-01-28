@@ -13,5 +13,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## About Project
 
 `1.` This project consume todo task API from spring boot.
+
 `2.` Store Data into mongo DB.
+
 `3.` Can Add/Update/Delete/ Task
