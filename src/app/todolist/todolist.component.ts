@@ -69,16 +69,12 @@ export class TodolistComponent implements OnInit {
     try {
       this.todoTaskService.updateTask(toUpdateTask)
       .subscribe( response => {
-        try {
-          this.todoTaskService.getTaskList()
-          .subscribe( response => {
-           this.toDoTaskList = response;
-           console.log(this.toDoTaskList);
-            
-          });
-         } catch (error) {
-          console.log("api error", error);
-         }
+        this.toDoTaskList.map((todo, i) => {
+          const updatedVal = new TodoList(response);
+          if (todo.id == updatedVal.id){
+            this.toDoTaskList[i] = updatedVal;
+          }
+        });
       
         
       });
