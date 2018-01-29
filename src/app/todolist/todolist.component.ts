@@ -9,14 +9,9 @@ import { TodoTaskService } from '../_services/todo-task.service';
 })
 export class TodolistComponent implements OnInit {
 
-  // toDoTaskList: TodoList[] = [
-  //   new TodoList('Tesk 1', 'this is test recipe', 'active', '01/27/2018'),
-  //   new TodoList('Tesk 2', 'this is test recipe', 'active', '01/27/2018'),
-  //   new TodoList('Tesk 3', 'this is test recipe', 'active', '01/27/2018'),
-  //   new TodoList('Tesk 4', 'this is test recipe', 'active', '01/27/2018'),
-  //   new TodoList('Tesk 5', 'this is test recipe', 'active', '01/27/2018'),
-  // ];
   toDoTaskList;
+
+  taskEdited = false;
 
   detailedTask: TodoList;
   constructor(private todoTaskService: TodoTaskService) { }
@@ -35,6 +30,7 @@ export class TodolistComponent implements OnInit {
   }
   onEditTask(tast: TodoList){
     this.detailedTask = tast;
+    this.taskEdited = true;
   }
   onDeleteTask(tast: TodoList, taskId: string){
     const taskTobeDeleted = this.toDoTaskList.indexOf(tast);
@@ -72,6 +68,7 @@ export class TodolistComponent implements OnInit {
         const updatedVal = new TodoList(response);
         const index = this.toDoTaskList.findIndex(todo => todo.id == updatedVal.id);
         this.toDoTaskList[index] = updatedVal;
+        this.taskEdited = false;
         // this.toDoTaskList.map((todo, i) => {
         //  if (todo.id == updatedVal.id){
         //     this.toDoTaskList[i] = updatedVal;

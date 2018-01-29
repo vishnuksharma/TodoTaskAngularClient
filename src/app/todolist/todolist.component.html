@@ -12,7 +12,7 @@
       </div>
       <div class="col-xs-12 col-sm-7">
           <hr/>
-        <div *ngIf="detailedTask; else infoText;" class="row padding">
+        <div *ngIf="detailedTask && taskEdited; else infoText;" class="row padding" [style.visibility]="(!taskEdited) ? 'hidden' : 'visible' ">
           <app-todo-details (emitUpdateTask) = "taskUpdate($event)" [taskDetails]="detailedTask"></app-todo-details>
         </div>
         <ng-template #infoText>
