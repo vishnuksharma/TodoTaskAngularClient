@@ -10,8 +10,8 @@
   </div>
   <div class="collapse navbar-collapse" id="myNavbar" #headerDropdownToOpen>
     <ul class="nav navbar-nav">
-      <li class="text-uppercase"><a  href="#" (click)="onSelect('recipe')">ToDo List</a></li>
-      <!-- <li class="text-uppercase"><a  href="#" (click)="onSelect('shopping-list')">Add Task</a></li> -->
+      <li class="text-uppercase"><a  routerLink="/todolist">ToDo List</a></li>
+      <li class="text-uppercase"><a  [routerLink]="['/addtask']" >Add Task</a></li>
   
     </ul>
    </div>

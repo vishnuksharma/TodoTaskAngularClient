@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ElementRef, EventEmitter, Output, Input } from '@angular/core';
 import { TodoList } from '../../_models/todolist';
-import {  } from '@angular/core/src/metadata/directives';
+import { TodoTaskService } from '../../_services/todo-task.service';
 
 @Component({
   selector: 'app-addlist',
@@ -9,7 +9,8 @@ import {  } from '@angular/core/src/metadata/directives';
 })
 export class AddlistComponent implements OnInit {
   @Output() emitNewTask = new EventEmitter()
-  constructor() { }
+  @Input() toDoTaskList: TodoList[];
+  constructor(private todoTaskService: TodoTaskService) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,19 @@ export class AddlistComponent implements OnInit {
       if (name){
         const newTask = new TodoList(addTask);
         this.emitNewTask.emit(newTask);
+
+        try {
+          this.todoTaskService.addTask(newTask)
+          .subscribe( response => {
+            console.log(response);
+            taskName.value = '';
+          this.toDoTaskList.push(response);
+          
+            
+          });
+         } catch (error) {
+          console.log("api error", error);
+         }
       }
   }
 }

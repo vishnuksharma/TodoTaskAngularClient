@@ -1,6 +1,7 @@
 <div class="row1">
   <div class="col-sx-12">
-    <app-addlist (emitNewTask)="onAddNewTask($event)"></app-addlist>
+    <!-- <app-addlist (emitNewTask)="onAddNewTask($event)"></app-addlist> -->
+    <app-addlist [toDoTaskList]="toDoTaskList"></app-addlist>
     <div class="row">
       <div class="col-xs-12 col-sm-5 todo-tasklist">
         <ul>

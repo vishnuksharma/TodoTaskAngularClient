@@ -48,18 +48,18 @@ export class TodolistComponent implements OnInit {
      }
   }
 
-  onAddNewTask(newTask: TodoList){
-    try {
-      this.todoTaskService.addTask(newTask)
-      .subscribe( response => {
-      this.toDoTaskList.push(response);
+  // onAddNewTask(newTask: TodoList){
+  //   try {
+  //     this.todoTaskService.addTask(newTask)
+  //     .subscribe( response => {
+  //     this.toDoTaskList.push(response);
       
         
-      });
-     } catch (error) {
-      console.log("api error", error);
-     }
-  }
+  //     });
+  //    } catch (error) {
+  //     console.log("api error", error);
+  //    }
+  // }
 
   taskUpdate(toUpdateTask: TodoList){
     try {
