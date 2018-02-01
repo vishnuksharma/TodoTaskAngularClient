@@ -40,6 +40,7 @@ export class TodolistComponent implements OnInit {
        console.log(response);
        if (response == 'Success'){
         this.toDoTaskList.splice(taskTobeDeleted, 1);
+        this.taskEdited = false;
        }
         
       });
